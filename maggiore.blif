@@ -1,0 +1,11 @@
+.model MAGGIORE200
+.inputs A7 A6 A5 A4 A3 A2 A1 A0
+.outputs O
+
+.names A7 A6 A5 A4 A3 A2 A1 A0 O
+111----- 1
+11-1---- 1
+11--11-- 1
+11--1-1- 1
+11--1--1 1
+.end

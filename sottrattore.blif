@@ -1,0 +1,36 @@
+.model SOTTRAZIONE-6bit
+#se il riporto della somma è 1 il numero è positivo, altrimenti sarebbe negativo in complemento a 2. In questo caso non controllo dal momento che il risultato dovrebbe essere sempre positivo
+.inputs A5 A4 A3 A2 A1 A0 B5 B4 B3 B2 B1 B0
+.outputs  O5 O4 O3 O2 O1 O0
+.subckt COMPLEMENTO2-6bit A5=B5 A4=B4 A3=B3 A2=B2 A1=B1 A0=B0 O5=C5 O4=C4 O3=C3 O2=C2 O1=C1 O0=C0
+.subckt SOMMA6 A5=A5 A4=A4 A3=A3 A2=A2 A1=A1 A0=A0 B5=C5 B4=C4 B3=C3 B2=C2 B1=C1 B0=C0 O5=O5 O4=O4 O3=O3 O2=O2 O1=O1 O0=O0
+.end
+
+.model COMPLEMENTO2-6bit
+.inputs A5 A4 A3 A2 A1 A0
+.outputs O5 O4 O3 O2 O1 O0
+.subckt COST0-1bit O=0
+.subckt COST1-1bit O=1
+.subckt INVERTIBIT-6bit A5=A5 A4=A4 A3=A3 A2=A2 A1=A1 A0=A0 O5=I5 O4=I4 O3=I3 O2=I2 O1=I1 O0=I0
+.subckt SOMMA6 A5=I5 A4=I4 A3=I3 A2=I2 A1=I1 A0=I0 B5=0 B4=0 B3=0 B2=0 B1=0 B0=1 O5=O5 O4=O4 O3=O3 O2=O2 O1=O1 O0=O0
+.end
+
+.model INVERTIBIT-6bit
+.inputs A5 A4 A3 A2 A1 A0
+.outputs O5 O4 O3 O2 O1 O0
+.names A5 O5
+0 1
+.names A4 O4
+0 1
+.names A3 O3
+0 1
+.names A2 O2
+0 1
+.names A1 O1
+0 1
+.names A0 O0
+0 1
+.end
+
+.search costanti.blif
+.search somme.blif

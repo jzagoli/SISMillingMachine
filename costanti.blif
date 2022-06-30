@@ -1,0 +1,10 @@
+.model COST1-1bit
+.outputs O
+.names O
+1
+.end
+
+.model COST0-1bit
+.outputs O
+.names O
+.end

@@ -1,0 +1,32 @@
+.model OR-54bit
+.inputs A4 A3 A2 A1 A0
+.outputs O
+.subckt OR A=A4 B=A3 O=K0
+.subckt OR A=A2 B=K0 O=K1
+.subckt OR A=A1 B=K1 O=K2
+.subckt OR A=A0 B=K2 O=O
+.end
+
+.model OR2-3bit
+.inputs A2 A1 A0 B2 B1 B0
+.outputs O2 O1 O0
+.subckt OR A=A2 B=B2 O=O2
+.subckt OR A=A1 B=B1 O=O1
+.subckt OR A=A0 B=B0 O=O0
+.end
+
+.model OR3
+.inputs A B C
+.outputs O
+.subckt OR A=A B=B O=A1
+.subckt OR A=A1 B=C O=O
+.end
+
+.model OR
+.inputs A B
+.outputs O
+.names A B O
+10 1
+01 1
+11 1
+.end

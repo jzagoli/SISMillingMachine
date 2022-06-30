@@ -1,0 +1,7 @@
+.model UGUALEOVERFLOW
+.inputs A4 A3 A2 A1 A0
+.outputs O
+
+.names A4 A3 A2 A1 A0 O
+10000 1
+.end

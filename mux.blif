@@ -1,0 +1,112 @@
+.model MUX2-6bit
+#secondo input sempre 0
+.inputs A5 A4 A3 A2 A1 A0 S2 S1 S0
+.outputs O5 O4 O3 O2 O1 O0
+.names S2 S1 S0 A5 O5
+1011 1
+.names S2 S1 S0 A4 O4
+1011 1
+.names S2 S1 S0 A3 O3
+1011 1
+.names S2 S1 S0 A2 O2
+1011 1
+.names S2 S1 S0 A1 O1
+1011 1
+.names S2 S1 S0 A0 O0
+1011 1
+.end
+
+.model MUX2-54bit
+#mux per non resettare altri contatori
+.inputs A4 A3 A2 A1 A0 B3 B2 B1 B0 S
+.outputs O4 O3 O2 O1 O0
+.names S A4 O4
+11 1
+.names S A3 B3 O3
+11- 1
+0-1 1
+.names S A2 B2 O2
+11- 1
+0-1 1
+.names S A1 B1 O1
+11- 1
+0-1 1
+.names S A0 B0 O0
+11- 1
+0-1 1
+.end
+
+.model MUX2-8bit-NSreset
+#mux per resettare a zero il contatrucioli
+.inputs A7 A6 A5 A4 A3 A2 A1 A0 S
+.outputs O7 O6 O5 O4 O3 O2 O1 O0
+.names S A7 O7
+01 1
+.names S A6 O6
+01 1
+.names S A5 O5
+01 1
+.names S A4 O4
+01 1
+.names S A3 O3
+01 1
+.names S A2 O2
+01 1
+.names S A1 O1
+01 1
+.names S A0 O0
+01 1
+.end
+
+.model MUX2-1bit-NS
+#mux per errore trucioli maggiore 200
+.inputs S
+.outputs O2 O1 O0
+.names S O2
+.names S O1
+1 1
+.names S O0
+.end
+
+.model MUX2-1bit-NE
+#mux per errore gate NE
+.inputs S
+.outputs O2 O1 O0
+.names S O2
+1 1
+.names S O1
+1 1
+.names S O0
+.end
+
+.model MUX2-1bit-NB
+#mux per dare l'errore al gate NB
+.inputs S
+.outputs O2 O1 O0
+.names S O2
+1 1
+.names S O1
+.names S O0
+1 1
+.end
+
+.model MUX5-4bit
+.inputs X2 X1 X0 a3 a2 a1 a0 b3 b2 b1 b0 c3 c2 c1 c0 d3 d2 d1 d0 e3 e2 e1 e0
+.outputs o3 o2 o1 o0
+.subckt MUX5-1bit S2=X2 S1=X1 S0=X0 i4=a3 i3=b3 i2=c3 i1=d3 i0=e3 O=o3
+.subckt MUX5-1bit S2=X2 S1=X1 S0=X0 i4=a2 i3=b2 i2=c2 i1=d2 i0=e2 O=o2
+.subckt MUX5-1bit S2=X2 S1=X1 S0=X0 i4=a1 i3=b1 i2=c1 i1=d1 i0=e1 O=o1
+.subckt MUX5-1bit S2=X2 S1=X1 S0=X0 i4=a0 i3=b0 i2=c0 i1=d0 i0=e0 O=o0
+.end
+
+.model MUX5-1bit
+#5 ingressi da un bit
+.inputs S2 S1 S0 i4 i3 i2 i1 i0
+.outputs O
+.names S2 S1 S0 i4 i3 i2 i1 i0 O
+0001---- 1
+001-1--- 1
+010--1-- 1
+011---1- 1
+100----1 1
+.end

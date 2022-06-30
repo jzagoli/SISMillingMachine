@@ -1,0 +1,352 @@
+.model FSM
+.inputs I6 I5 I4 I3 I2 I1 I0 EI2 EI1 EI0
+.outputs OI ERR2 ERR1 ERR0 GA GB GC GD GE GF SC2 SC1 SC0
+.latch    [13] LatchOut_v10   0
+.latch    [14] LatchOut_v11   0
+.latch    [15] LatchOut_v12   1
+.start_kiss
+.i 10
+.o 13
+.p 15
+.s 6
+.r OFF
+0------000 OFF OFF 0---000000111
+-0-----000 OFF OFF 0---000000111
+--0----000 OFF OFF 0---000000111
+111----000 OFF READY 1000000000111
+-------000 READY CONTIN 1000100000000
+0------101 CONTIN OFF 0101000000111
+0------000 CONTIN SCARTO 1000010000001
+1------000 CONTIN FRESA 1000001000010
+-------000 SCARTO READY 1000000000111
+1------000 FRESA CONTUS 1000000100101
+0--------- FRESA OFF 0001000000111
+1------010 FRESA OFF 0010000000111
+0------000 CONTUS SCARTO 1000000010011
+0------110 CONTUS OFF 0110000000111
+1------000 CONTUS READY 1000000001100
+.end_kiss
+.latch_order LatchOut_v10 LatchOut_v11 LatchOut_v12
+.code OFF 001
+.code READY 011
+.code CONTIN 010
+.code SCARTO 101
+.code FRESA 111
+.code CONTUS 000
+.names I6 EI1 EI0 LatchOut_v11 LatchOut_v12 [13]
+1--10 1
+0-010 1
+00-00 1
+.names I6 I5 I4 LatchOut_v10 LatchOut_v11 LatchOut_v12 [14]
+---10- 1
+---011 1
+1---10 1
+1---00 1
+111-0- 1
+.names I6 EI1 EI0 LatchOut_v10 LatchOut_v11 LatchOut_v12 [15]
+11---- 1
+----01 1
+-1---0 1
+--1--0 1
+0--11- 1
+1---10 1
+1---00 1
+0-0-10 1
+00--00 1
+.names I6 I5 I4 EI1 EI0 LatchOut_v10 LatchOut_v11 LatchOut_v12 OI
+-----10- 1
+-----011 1
+1-----10 1
+1-----00 1
+1--0-11- 1
+111---0- 1
+0---0-10 1
+0--0--00 1
+.names EI1 EI0 LatchOut_v12 ERR2
+1-0 1
+-10 1
+.names I6 EI1 LatchOut_v12 ERR1
+11- 1
+-10 1
+.names I6 EI0 LatchOut_v10 LatchOut_v11 LatchOut_v12 ERR0
+-1--0 1
+0-11- 1
+.names LatchOut_v10 LatchOut_v11 LatchOut_v12 GA
+011 1
+.names I6 EI0 LatchOut_v11 LatchOut_v12 GB
+0010 1
+.names I6 LatchOut_v11 LatchOut_v12 GC
+110 1
+.names I6 EI1 LatchOut_v10 LatchOut_v11 GD
+1011 1
+.names I6 EI1 LatchOut_v11 LatchOut_v12 GE
+0000 1
+.names I6 LatchOut_v11 LatchOut_v12 GF
+100 1
+.names I6 EI1 EI0 LatchOut_v10 LatchOut_v11 LatchOut_v12 SC2
+11---- 1
+----01 1
+-1---0 1
+--1--0 1
+0--11- 1
+1---00 1
+10-11- 1
+.names I6 EI1 EI0 LatchOut_v10 LatchOut_v11 LatchOut_v12 SC1
+11---- 1
+----01 1
+-1---0 1
+--1--0 1
+0--11- 1
+1---10 1
+00--00 1
+.names I6 EI1 EI0 LatchOut_v10 LatchOut_v11 LatchOut_v12 SC0
+11---- 1
+----01 1
+-1---0 1
+--1--0 1
+0--11- 1
+10-11- 1
+0-0-10 1
+00--00 1
+.exdc 
+.inputs I6 I5 I4 I3 I2 I1 I0 EI2 EI1 EI0 LatchOut_v10 LatchOut_v11 \
+LatchOut_v12
+.outputs [13] [14] [15] OI ERR2 ERR1 ERR0 GA GB GC GD GE GF SC2 SC1 SC0
+.names I6 EI2 EI1 EI0 LatchOut_v10 LatchOut_v11 LatchOut_v12 [13]
+11----- 1
+---1-0- 1
+----1-0 1
+1--11-- 1
+-0-10-- 1
+--1-01- 1
+1-1--0- 1
+-01--0- 1
+-10--0- 1
+-1--0-1 1
+-1---01 1
+--1--01 1
+-1-001- 1
+.names I6 EI2 EI1 EI0 LatchOut_v10 LatchOut_v11 LatchOut_v12 [14]
+11----- 1
+---1-0- 1
+----1-0 1
+1--11-- 1
+-0-10-- 1
+--1-01- 1
+1-1--0- 1
+-01--0- 1
+-10--0- 1
+-1--0-1 1
+-1---01 1
+--1--01 1
+-1-001- 1
+.names I6 EI2 EI1 EI0 LatchOut_v10 LatchOut_v11 LatchOut_v12 [15]
+11----- 1
+---1-0- 1
+----1-0 1
+1--11-- 1
+-0-10-- 1
+--1-01- 1
+1-1--0- 1
+-01--0- 1
+-10--0- 1
+-1--0-1 1
+-1---01 1
+--1--01 1
+-1-001- 1
+.names I6 EI2 EI1 EI0 LatchOut_v10 LatchOut_v11 LatchOut_v12 OI
+11----- 1
+---1-0- 1
+----1-0 1
+1--11-- 1
+-0-10-- 1
+--1-01- 1
+1-1--0- 1
+-01--0- 1
+-10--0- 1
+-1--0-1 1
+-1---01 1
+--1--01 1
+-1-001- 1
+.names I6 I5 I4 EI2 EI1 EI0 LatchOut_v10 LatchOut_v11 LatchOut_v12 ERR2
+1--1----- 1
+1----1--- 1
+-----1-0- 1
+------1-0 1
+---10--0- 1
+---1--0-1 1
+----1-0-1 1
+-----10-1 1
+---1---01 1
+----1--01 1
+1---1---0 1
+---01---0 1
+---0-1--0 1
+----1--10 1
+0-----001 1
+-0----001 1
+--0---001 1
+---1-0-10 1
+.names I6 I5 I4 EI2 EI1 EI0 LatchOut_v10 LatchOut_v11 LatchOut_v12 ERR1
+1--1----- 1
+1----1--- 1
+-----1-0- 1
+------1-0 1
+---10--0- 1
+---1--0-1 1
+----1-0-1 1
+-----10-1 1
+---1---01 1
+----1--01 1
+1---1---0 1
+---01---0 1
+---0-1--0 1
+----1--10 1
+0-----001 1
+-0----001 1
+--0---001 1
+---1-0-10 1
+.names I6 I5 I4 EI2 EI1 EI0 LatchOut_v10 LatchOut_v11 LatchOut_v12 ERR0
+1--1----- 1
+-----1-0- 1
+------1-0 1
+1----11-- 1
+---0-10-- 1
+----1-01- 1
+1---1--0- 1
+---01--0- 1
+---10--0- 1
+---1--0-1 1
+---1---01 1
+----1--01 1
+---1-001- 1
+0-----001 1
+-0----001 1
+--0---001 1
+.names I6 EI2 EI1 EI0 LatchOut_v10 LatchOut_v11 LatchOut_v12 GA
+11----- 1
+---1-0- 1
+----1-0 1
+1--11-- 1
+-0-10-- 1
+--1-01- 1
+1-1--0- 1
+-01--0- 1
+-10--0- 1
+-1--0-1 1
+-1---01 1
+--1--01 1
+-1-001- 1
+.names I6 EI2 EI1 EI0 LatchOut_v10 LatchOut_v11 LatchOut_v12 GB
+11----- 1
+---1-0- 1
+----1-0 1
+1--11-- 1
+-0-10-- 1
+--1-01- 1
+1-1--0- 1
+-01--0- 1
+-10--0- 1
+-1--0-1 1
+-1---01 1
+--1--01 1
+-1-001- 1
+.names I6 EI2 EI1 EI0 LatchOut_v10 LatchOut_v11 LatchOut_v12 GC
+11----- 1
+---1-0- 1
+----1-0 1
+1--11-- 1
+-0-10-- 1
+--1-01- 1
+1-1--0- 1
+-01--0- 1
+-10--0- 1
+-1--0-1 1
+-1---01 1
+--1--01 1
+-1-001- 1
+.names I6 EI2 EI1 EI0 LatchOut_v10 LatchOut_v11 LatchOut_v12 GD
+11----- 1
+---1-0- 1
+----1-0 1
+1--11-- 1
+-0-10-- 1
+--1-01- 1
+1-1--0- 1
+-01--0- 1
+-10--0- 1
+-1--0-1 1
+-1---01 1
+--1--01 1
+-1-001- 1
+.names I6 EI2 EI1 EI0 LatchOut_v10 LatchOut_v11 LatchOut_v12 GE
+11----- 1
+---1-0- 1
+----1-0 1
+1--11-- 1
+-0-10-- 1
+--1-01- 1
+1-1--0- 1
+-01--0- 1
+-10--0- 1
+-1--0-1 1
+-1---01 1
+--1--01 1
+-1-001- 1
+.names I6 EI2 EI1 EI0 LatchOut_v10 LatchOut_v11 LatchOut_v12 GF
+11----- 1
+---1-0- 1
+----1-0 1
+1--11-- 1
+-0-10-- 1
+--1-01- 1
+1-1--0- 1
+-01--0- 1
+-10--0- 1
+-1--0-1 1
+-1---01 1
+--1--01 1
+-1-001- 1
+.names I6 EI2 EI1 EI0 LatchOut_v10 LatchOut_v11 LatchOut_v12 SC2
+11----- 1
+---1-0- 1
+----1-0 1
+1--11-- 1
+-0-10-- 1
+--1-01- 1
+1-1--0- 1
+-01--0- 1
+-10--0- 1
+-1--0-1 1
+-1---01 1
+--1--01 1
+-1-001- 1
+.names I6 EI2 EI1 EI0 LatchOut_v10 LatchOut_v11 LatchOut_v12 SC1
+11----- 1
+---1-0- 1
+----1-0 1
+1--11-- 1
+-0-10-- 1
+--1-01- 1
+1-1--0- 1
+-01--0- 1
+-10--0- 1
+-1--0-1 1
+-1---01 1
+--1--01 1
+-1-001- 1
+.names I6 EI2 EI1 EI0 LatchOut_v10 LatchOut_v11 LatchOut_v12 SC0
+11----- 1
+---1-0- 1
+----1-0 1
+1--11-- 1
+-0-10-- 1
+--1-01- 1
+1-1--0- 1
+-01--0- 1
+-10--0- 1
+-1--0-1 1
+-1---01 1
+--1--01 1
+-1-001- 1
+.end

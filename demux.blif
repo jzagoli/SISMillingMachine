@@ -1,0 +1,24 @@
+.model DEMUX5-5bit
+.inputs S2 S1 S0 I4 I3 I2 I1 I0
+.outputs A4 A3 A2 A1 A0  B4 B3 B2 B1 B0  C4 C3 C2 C1 C0  D4 D3 D2 D1 D0  E4 E3 E2 E1 E0
+.subckt DEMUX5-1bit S2=S2 S1=S1 S0=S0 I=I4 X=A4 Y=B4 Z=C4 W=D4 V=E4
+.subckt DEMUX5-1bit S2=S2 S1=S1 S0=S0 I=I3 X=A3 Y=B3 Z=C3 W=D3 V=E3
+.subckt DEMUX5-1bit S2=S2 S1=S1 S0=S0 I=I2 X=A2 Y=B2 Z=C2 W=D2 V=E2
+.subckt DEMUX5-1bit S2=S2 S1=S1 S0=S0 I=I1 X=A1 Y=B1 Z=C1 W=D1 V=E1
+.subckt DEMUX5-1bit S2=S2 S1=S1 S0=S0 I=I0 X=A0 Y=B0 Z=C0 W=D0 V=E0
+.end
+
+.model DEMUX5-1bit
+.inputs S2 S1 S0 I
+.outputs X Y Z W V
+.names S2 S1 S0 I X
+0001 1
+.names S2 S1 S0 I Y
+0011 1
+.names S2 S1 S0 I Z
+0101 1
+.names S2 S1 S0 I W
+0111 1
+.names S2 S1 S0 I V
+1001 1
+.end

@@ -1,0 +1,39 @@
+.model REG3
+.inputs A2 A1 A0
+.outputs O2 O1 O0
+.latch A2 O2 re NIL 0
+.latch A1 O1 re NIL 0
+.latch A0 O0 re NIL 0
+.end
+
+.model REG6
+.inputs A5 A4 A3 A2 A1 A0
+.outputs O5 O4 O3 O2 O1 O0
+.latch A5 O5 re NIL 0
+.latch A4 O4 re NIL 0
+.latch A3 O3 re NIL 0
+.latch A2 O2 re NIL 0
+.latch A1 O1 re NIL 0
+.latch A0 O0 re NIL 0
+.end
+
+.model REG4-5Inputs
+.inputs A4 A3 A2 A1 A0
+.outputs O3 O2 O1 O0
+.latch A3 O3 re NIL 0
+.latch A2 O2 re NIL 0
+.latch A1 O1 re NIL 0
+.latch A0 O0 re NIL 0
+.end
+
+.model REG8
+.inputs A7 A6 A5 A4 A3 A2 A1 A0
+.outputs O7 O6 O5 O4 O3 O2 O1 O0
+.latch A7 O7 re NIL 0
+.latch A6 O6 re NIL 0
+.latch A5 O5 re NIL 0
+.latch A4 O4 re NIL 0
+.latch A3 O3 re NIL 0
+.latch A2 O2 re NIL 0
+.latch A1 O1 re NIL 0
+.latch A0 O0 re NIL 0

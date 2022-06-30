@@ -9,6 +9,13 @@ numerico (Milling Machine) e due unità di controllo qualità poste prima dell�
 pezzo dalla macchina.
 Il dispositivo di controllo prende in ingresso una sequenza di 7 bit, che assumono significato diverso in 
 funzione dello stato in cui si trova l’impianto.
+
+| Impianto Off    | ON2 | ON1   | ON0   |       |       |       |       |
+|-----------------|-----|-------|-------|-------|-------|-------|-------|
+| Check In        | QI  | VIN5  | VIN4  | VIN3  | VIN2  | VIN1  | VIN0  |
+| Milling machine | EM  | VOUT5 | VOUT4 | VOUT3 | VOUT2 | VOUT1 | VOUT0 |
+| Check Out       | Q0  |       |       |       |       |       |       |
+
 Il principio di funzionamento dell’impianto è espresso dalle seguenti fasi:
 - L’impianto è inizialmente spento (O/I=0). L’impianto si accende quando il comando di accensione 
 (ON) di 3 bit è composto dalla sequenza 111 (ON=111). L’impianto si accende (O/I=1) e inizia a 
@@ -20,12 +27,6 @@ controllo in ingresso. Il dispositivo deve inoltre incrementare un contatore dei
     - Se il pezzo risulta scarto (QI=0), il dispositivo deve aprire il gate B (GB=1) mandando il 
 pezzo in un deposito di scarti e aumentare il contatore dei pezzi scartati in ingresso (NB). 
 Al ciclo successivo il dispositivo ricomincia il ciclo aprendo il gate A.
-| Impianto Off    | ON2 | ON1   | ON0   |       |       |       |       |
-|-----------------|-----|-------|-------|-------|-------|-------|-------|
-| Check In        | QI  | VIN5  | VIN4  | VIN3  | VIN2  | VIN1  | VIN0  |
-| Milling machine | EM  | VOUT5 | VOUT4 | VOUT3 | VOUT2 | VOUT1 | VOUT0 |
-| Check Out       | Q0  |       |       |       |       |       |       |
-
     - Se il pezzo risulta buono (QI=1) si apre il gate C (GC=1) ed il pezzo può passare alla fresa 
 incrementando il contatore NC.
 - Nella macchina il pezzo grezzo viene fresato per ottenere un pezzo lavorato; la macchina fornisce 
